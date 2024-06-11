@@ -117,9 +117,14 @@ const treeData = [
   },
 ];
 
-
 const renderCustomNodeElement = ({ nodeDatum }: Props) => (
-  <foreignObject x="-50" y="-50" width="150" height="140">
+  <foreignObject
+    x="-50"
+    y="-50"
+    width="150"
+    height="140"
+    
+  >
     <div
       style={{
         width: "100%",
@@ -129,7 +134,11 @@ const renderCustomNodeElement = ({ nodeDatum }: Props) => (
         justifyContent: "center",
       }}
     >
-      <Card variant="outlined" style={{ borderRadius: "1rem", textAlign:"center"}}>
+      <Card
+        variant="outlined"
+        style={{ borderRadius: "1rem", textAlign: "center" }}
+        onClick={() => console.log("Hey")}
+      >
         <CardContent>
           <Typography variant="h5">{nodeDatum.name}</Typography>
           <Typography variant="body1">{nodeDatum.description}</Typography>
@@ -141,10 +150,11 @@ const renderCustomNodeElement = ({ nodeDatum }: Props) => (
 
 const CourseTree = () => {
   return (
-    <div style={{ width: "60rem", height: "60rem" }}>
+    <div style={{ width: "80vw", height: "60rem" }}>
       <Tree
         data={treeData}
         renderCustomNodeElement={renderCustomNodeElement}
+        pathFunc="elbow"
         zoom={0.43}
         translate={{ x: 50, y: 470 }}
         nodeSize={{ x: 300, y: 200 }}
