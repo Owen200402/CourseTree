@@ -118,13 +118,7 @@ const treeData = [
 ];
 
 const renderCustomNodeElement = ({ nodeDatum }: Props) => (
-  <foreignObject
-    x="-50"
-    y="-50"
-    width="150"
-    height="140"
-    
-  >
+  <foreignObject x="-50" y="-50" width="150" height="150">
     <div
       style={{
         width: "100%",
@@ -136,8 +130,14 @@ const renderCustomNodeElement = ({ nodeDatum }: Props) => (
     >
       <Card
         variant="outlined"
-        style={{ borderRadius: "1rem", textAlign: "center" }}
-        onClick={() => console.log("Hey")}
+        style={{ borderRadius: "2rem", textAlign: "center" }}
+        onClick={() => console.log("Hey")} // TODO
+        sx={{
+          transition: 'color 0.3s',
+          ":hover": {
+            color: "#A6192E"
+          },
+        }}
       >
         <CardContent>
           <Typography variant="h5">{nodeDatum.name}</Typography>
