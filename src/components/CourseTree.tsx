@@ -150,13 +150,14 @@ const renderCustomNodeElement = ({ nodeDatum }: Props) => (
 
 const CourseTree = () => {
   return (
-    <div style={{ width: "80vw", height: "60rem" }}>
+    <div style={{ width: "80vw", height: "60rem"}}>
+      <Typography variant="h5" sx={{textAlign: "center", marginTop: "1rem", display: "flex", flexDirection: "column"}}>Interactive Course Tree</Typography>
       <Tree
         data={treeData}
         renderCustomNodeElement={renderCustomNodeElement}
         pathFunc="elbow"
-        zoom={0.43}
-        translate={{ x: 50, y: 470 }}
+        zoom={0.48}
+        translate={{ x: 200, y: 470 }}
         nodeSize={{ x: 300, y: 200 }}
         separation={{ siblings: 0.8, nonSiblings: 0.7 }}
       />
