@@ -1,5 +1,6 @@
 import { Card, Typography } from "@mui/material";
 import { Course } from "../hooks/useCourses";
+import "animate.css"
 
 interface Props {
     course: Course;
@@ -9,8 +10,9 @@ const CourseCard = ({course}: Props) => {
   return (
     <Card
       variant="outlined"
+      className={"animate__animated animate__fadeInLeft"}
       sx={{ height: "15rem", width: "23rem", padding: "1rem", borderRadius: "1.5rem" }}
-      className="animate__animated animate__fadeIn"
+      
     >
       <Typography variant="h5" sx={{ color: "#002145" }}>
         {course.code}
