@@ -7,7 +7,7 @@ interface Props {
 
 const Heading = ({ children }: Props) => {
   return (
-    <Typography variant="h4" sx={{ textAlign: "center", margin: "1rem" }}>
+    <Typography variant="h4" sx={{ textAlign: "center", margin: "1rem", color: "white" }}>
       {children}
     </Typography>
   );

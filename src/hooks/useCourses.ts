@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient, { CanceledError } from "../services/api-client";
 
-interface Course {
+export interface Course {
   _id: string;
   dept: string;
   code: string;

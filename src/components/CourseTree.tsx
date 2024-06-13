@@ -1,9 +1,13 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { useRef } from "react";
 import Tree from "react-d3-tree";
 
 interface Props {
   nodeDatum: any;
+  onNodeClick: (nodeDatum: any) => void;
+}
+
+interface Selection {
+  onNodeSelect: (nodeDatum: any) => void;
 }
 
 const treeData = [
@@ -117,7 +121,8 @@ const treeData = [
   },
 ];
 
-const renderCustomNodeElement = ({ nodeDatum }: Props) => (
+
+const renderCustomNodeElement = ({ nodeDatum, onNodeClick }: Props) => (
   <foreignObject x="-50" y="-50" width="150" height="150">
     <div
       style={{
@@ -131,13 +136,13 @@ const renderCustomNodeElement = ({ nodeDatum }: Props) => (
       <Card
         variant="outlined"
         style={{ borderRadius: "2rem", textAlign: "center" }}
-        onClick={() => console.log("Hey")} // TODO
         sx={{
           transition: 'color 0.3s',
           ":hover": {
             color: "#A6192E"
           },
         }}
+        onClick={() => onNodeClick(nodeDatum)}
       >
         <CardContent>
           <Typography variant="h5">{nodeDatum.name}</Typography>
@@ -148,13 +153,13 @@ const renderCustomNodeElement = ({ nodeDatum }: Props) => (
   </foreignObject>
 );
 
-const CourseTree = () => {
+const CourseTree = ({ onNodeSelect }: Selection) => {
   return (
     <div style={{ width: "80vw", height: "60rem"}}>
-      <Typography variant="h5" sx={{textAlign: "center", marginTop: "1rem", display: "flex", flexDirection: "column"}}>Interactive Course Tree</Typography>
+      <Typography variant="h5" sx={{textAlign: "center", marginTop: "1rem", display: "flex", flexDirection: "column", color: "white"}}>Interactive Course Tree</Typography>
       <Tree
         data={treeData}
-        renderCustomNodeElement={renderCustomNodeElement}
+        renderCustomNodeElement={(node) => renderCustomNodeElement({ ...node, onNodeClick: onNodeSelect })}
         pathFunc="elbow"
         zoom={0.48}
         translate={{ x: 200, y: 470 }}

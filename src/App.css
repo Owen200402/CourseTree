@@ -5,4 +5,11 @@
   justify-content: center;
   align-items: center;
   border-color: black;
+  position: relative;
+  z-index: 1;
+}
+
+.main-content {
+  position: relative;
+  z-index: 2; /* Ensure this is higher than the particles */
 }
