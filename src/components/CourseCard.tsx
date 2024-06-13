@@ -9,7 +9,7 @@ const CourseCard = ({course}: Props) => {
   return (
     <Card
       variant="outlined"
-      sx={{ height: "15rem", width: "23rem", padding: "1rem" }}
+      sx={{ height: "15rem", width: "23rem", padding: "1rem", borderRadius: "1.5rem" }}
       className="animate__animated animate__fadeIn"
     >
       <Typography variant="h5" sx={{ color: "#002145" }}>
