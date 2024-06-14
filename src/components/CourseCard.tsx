@@ -1,16 +1,20 @@
 import { Card, Typography } from "@mui/material";
 import { Course } from "../hooks/useCourses";
-import "animate.css"
+import "animate.css";
+import React, { useState } from 'react';
+
 
 interface Props {
     course: Course;
+    animationClass: string;
 }
 
-const CourseCard = ({course}: Props) => {
+const CourseCard = ({course, animationClass}: Props) => {
+  
   return (
     <Card
       variant="outlined"
-      className={"animate__animated animate__fadeInLeft"}
+      className={animationClass}
       sx={{ height: "15rem", width: "23rem", padding: "1rem", borderRadius: "1.5rem" }}
       
     >

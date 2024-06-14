@@ -26,6 +26,15 @@ function App() {
     setCourse(courses.find((c) => c.code === courseCode));
   };
 
+  const [animationClass, setAnimationClass] = useState("");
+
+  const handleClick = () => {
+    setAnimationClass("animate__animated animate__fadeInLeft"); // Set the desired animation class
+    setTimeout(() => {
+      setAnimationClass("");
+    }, 1000);
+  };
+
   if (isLoading) {
     return (
       <div className="wrapper">
@@ -45,9 +54,7 @@ function App() {
 
         <Grid container spacing={2}>
           <Grid item xs={4} ml={4}>
-            {course && (
-              <CourseCard course={course}></CourseCard>
-            )}
+            {course && <CourseCard course={course} animationClass={animationClass}></CourseCard>}
           </Grid>
 
           <Grid item xs={7.5} padding="1rem">
@@ -62,7 +69,12 @@ function App() {
                 borderRadius: "5px",
               }}
             >
-              <CourseTree onNodeSelect={(node) => popUpInfo(node)} />
+              <CourseTree
+                onNodeSelect={(node) => {
+                  popUpInfo(node);
+                  handleClick();
+                }}
+              />
             </Box>
           </Grid>
         </Grid>
