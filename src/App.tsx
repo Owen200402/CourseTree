@@ -1,10 +1,7 @@
 import {
   Box,
-  Card,
   CircularProgress,
   Grid,
-  Link,
-  Skeleton,
   Typography,
 } from "@mui/material";
 import "./App.css";
