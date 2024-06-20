@@ -1,9 +1,4 @@
-import {
-  Box,
-  CircularProgress,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 import "./App.css";
 import CourseTree from "./components/CourseTree";
 import Heading from "./components/Heading";
@@ -51,7 +46,12 @@ function App() {
 
         <Grid container spacing={2}>
           <Grid item xs={4} ml={4}>
-            {course && <CourseCard course={course} animationClass={animationClass}></CourseCard>}
+            {course && (
+              <CourseCard
+                course={course}
+                animationClass={animationClass}
+              ></CourseCard>
+            )}
           </Grid>
 
           <Grid item xs={7.5} padding="1rem">

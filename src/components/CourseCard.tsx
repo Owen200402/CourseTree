@@ -1,22 +1,24 @@
 import { Card, Typography } from "@mui/material";
 import { Course } from "../hooks/useCourses";
 import "animate.css";
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
 
 interface Props {
-    course: Course;
-    animationClass: string;
+  course: Course;
+  animationClass: string;
 }
 
-const CourseCard = ({course, animationClass}: Props) => {
-  
+const CourseCard = ({ course, animationClass }: Props) => {
   return (
     <Card
       variant="outlined"
       className={animationClass}
-      sx={{ height: "15rem", width: "23rem", padding: "1rem", borderRadius: "1.5rem" }}
-      
+      sx={{
+        height: "15rem",
+        width: "23rem",
+        padding: "1rem",
+        borderRadius: "1.5rem",
+      }}
     >
       <Typography variant="h5" sx={{ color: "#002145" }}>
         {course.code}

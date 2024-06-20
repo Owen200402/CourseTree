@@ -17,20 +17,16 @@ const treeData = [
     description: "Introduction to Engineering Computation",
     children: [
       {
-        name: "CPEN 221",
-        description: "Software Construction I",
+        name: "APSC 176",
+        description: "Technical Communication",
         children: [
           {
-            name: "CPEN 212",
-            description: "Computing Systems II",
+            name: "CPEN 281",
+            description: "Technical Communication",
             children: [
               {
-                name: "CPEN 311",
-                description: "Digital Systems Design",
-              },
-              {
                 name: "CPEN 321",
-                description: "Introduction to Software Engineering",
+                description: "Software Engineering",
                 children: [
                   {
                     name: "CPEN 421",
@@ -47,32 +43,54 @@ const treeData = [
                 ],
               },
               {
-                name: "CPEN 391",
-                description: "Computer Engineering Design Studio II",
+                name: "CPEN 322",
+                description: "Software Construction II",
+                children: [
+                  {
+                    name: "CPEN 391",
+                    description: "Computer Engineering Design Studio II",
+                  },
+                ],
+              },
+              {
+                name: "CPEN 212",
+                description: "Computing Systems II",
+                children: [
+                  {
+                    name: "CPEN 311",
+                    description: "Digital Systems Design",
+                  },
+                  {
+                    name: "CPEN 331",
+                    description: "Operating Systems",
+                  },
+                  {
+                    name: "CPEN 412",
+                    description: "Microcomputer Systems Design",
+                  },
+                ],
+              },
+              {
+                name: "CPEN 221",
+                description: "Software Construction I",
+                children: [
+                  {
+                    name: "CPEN 231",
+                    description: "Computer Architecture",
+                  },
+                ],
+              },
+              {
+                name: "CPEN 211",
+                description: "Basic Electrical Engineering",
+                children: [
+                  {
+                    name: "CPEN 312",
+                    description: "Microelectronics",
+                  },
+                ],
               },
             ],
-          },
-          {
-            name: "CPEN 231",
-            description: "Computer Architecture",
-            children: [
-              {
-                name: "CPEN 331",
-                description: "Operating Systems",
-              },
-              {
-                name: "CPEN 333",
-                description: "System Software Engineering",
-              },
-              {
-                name: "CPEN 412",
-                description: "Microcomputer Systems Design",
-              },
-            ],
-          },
-          {
-            name: "CPEN 223",
-            description: "Software Design for Engineers",
           },
         ],
       },
@@ -116,12 +134,21 @@ const treeData = [
               },
             ],
           },
+          {
+            name: "ELEC 204",
+            description: "Linear Circuits",
+            children: [
+              {
+                name: "ELEC 205",
+                description: "Electronics Laboratory",
+              },
+            ],
+          },
         ],
       },
     ],
   },
 ];
-
 
 const renderCustomNodeElement = ({ nodeDatum, onNodeClick }: Props) => (
   <foreignObject x="-50" y="-50" width="150" height="150">
@@ -138,9 +165,9 @@ const renderCustomNodeElement = ({ nodeDatum, onNodeClick }: Props) => (
         variant="outlined"
         style={{ borderRadius: "2rem", textAlign: "center" }}
         sx={{
-          transition: 'color 0.3s',
+          transition: "color 0.3s",
           ":hover": {
-            color: "#A6192E"
+            color: "#A6192E",
           },
         }}
         onClick={() => onNodeClick(nodeDatum)}
@@ -156,11 +183,24 @@ const renderCustomNodeElement = ({ nodeDatum, onNodeClick }: Props) => (
 
 const CourseTree = ({ onNodeSelect }: Selection) => {
   return (
-    <div style={{ width: "80vw", height: "60rem"}}>
-      <Typography variant="h5" sx={{textAlign: "center", marginTop: "1rem", display: "flex", flexDirection: "column", color: "white"}}>Interactive Course Tree</Typography>
+    <div style={{ width: "80vw", height: "60rem" }}>
+      <Typography
+        variant="h5"
+        sx={{
+          textAlign: "center",
+          marginTop: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          color: "white",
+        }}
+      >
+        Interactive Course Tree
+      </Typography>
       <Tree
         data={treeData}
-        renderCustomNodeElement={(node) => renderCustomNodeElement({ ...node, onNodeClick: onNodeSelect })}
+        renderCustomNodeElement={(node) =>
+          renderCustomNodeElement({ ...node, onNodeClick: onNodeSelect })
+        }
         pathFunc="elbow"
         zoom={0.48}
         translate={{ x: 200, y: 470 }}
