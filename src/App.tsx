@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import "./App.css";
 import CourseTree from "./components/CourseTree";
 import Heading from "./components/Heading";
@@ -6,15 +6,15 @@ import useCourses, { Course } from "./hooks/useCourses";
 import { useState } from "react";
 import Particle from "./components/Particle";
 import CourseCard from "./components/CourseCard";
+import CircularProgress from '@mui/joy/CircularProgress';
+
 
 function App() {
   const { courses, isLoading } = useCourses();
   const [course, setCourse] = useState<Course>();
-  const [clicked, setClicked] = useState(false);
 
   const popUpInfo = (node: any) => {
     const courseCode = node.name.toUpperCase();
-    setClicked(true);
     setCourse(courses.find((c) => c.code === courseCode));
   };
 
@@ -33,7 +33,7 @@ function App() {
         <Typography variant="body1">Fetching from the server...</Typography>
         <Typography variant="body1">This will take about 5 seconds.</Typography>
 
-        <CircularProgress />
+        <CircularProgress variant="solid" size="sm" color="primary" />
       </div>
     );
   }
